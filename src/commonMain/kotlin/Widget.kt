@@ -31,9 +31,11 @@ interface Widget {
     }
 }
 
-internal fun <R> TagConsumer<R>.widget(widget: Widget, name: String = widget.toString()): R = div {
+private var counter = 0
+
+internal fun <R> TagConsumer<R>.widget(name: String, widget: Widget): R = div {
     classes = classes + WIDGET_TAG_CLASS
-    val widgetId = "jupyterWidget[$name]"
+    val widgetId = "kotlin-widget-${counter++}"
     id = widgetId
     attributes[WIDGET_ID_ATTRIBUTE] = name
     attributes[WIDGET_TYPE_ATTRIBUTE] = widget.type

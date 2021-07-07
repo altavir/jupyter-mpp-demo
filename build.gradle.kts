@@ -1,8 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.5.20"
     kotlin("plugin.serialization") version "1.5.20"
-    //use apply false as workaround
-    kotlin("jupyter.api") version "0.10.0-53" apply false
+    kotlin("jupyter.api") version "0.10.0-98-1"
     `maven-publish`
 }
 
@@ -61,6 +60,3 @@ kotlin {
         }
     }
 }
-
-// workaround
-plugins.apply("org.jetbrains.kotlin.jupyter.api")
